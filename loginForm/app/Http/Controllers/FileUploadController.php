@@ -13,15 +13,22 @@ class FileUploadController extends Controller
         if ($request->hasFile('file')) {
             $file = $request->file('file');
             $originalName = $file->getClientOriginalName(); // Get the original file name
+            $newName = uniqid() . '.' . $file->getClientOriginalExtension();
+            $path = $file->storeAs('documents', $newName);
             // Store the file using the original name
             $path = $file->storeAs('documents', $originalName);
 
+
             if ($path) {
                 // Create a database record for the file
+                // or any other value you want to store
                 $fileRecord = new File();
-                $fileRecord->filename = $file->getClientOriginalName(); // Or any other relevant metadata
+                $fileRecord->filesize2 = $file->getSize();
+                $fileRecord->fileNewname = $newName;
+                $fileRecord->filename =  $originalName; // Or any other relevant metadata
                 $fileRecord->filepath = $path;
                 $fileRecord->filesize = $file->getSize();
+               
                 // Set other properties as needed
                 $fileRecord->save();
 
