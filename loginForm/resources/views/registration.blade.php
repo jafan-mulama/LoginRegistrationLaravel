@@ -4,7 +4,7 @@
     <br/><br/><br/>
     <div class="container">
 
-        <form class="ms-auto me-auto mt-auto" style="width: 400px">
+        <form action="{{ route('registration.post') }}}" method="post" class="ms-auto me-auto mt-auto" style="width: 400px">
             <div class="form-group">
                 <label class="form-label" >Full Name</label>
                 <input type="email" class="form-control"  placeholder="Full Name">

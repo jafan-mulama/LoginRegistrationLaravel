@@ -23,7 +23,6 @@ class FileUploadController extends Controller
                 // Create a database record for the file
                 // or any other value you want to store
                 $fileRecord = new File();
-                $fileRecord->filesize2 = $file->getSize();
                 $fileRecord->fileNewname = $newName;
                 $fileRecord->filename =  $originalName; // Or any other relevant metadata
                 $fileRecord->filepath = $path;
