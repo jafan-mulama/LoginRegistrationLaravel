@@ -27,7 +27,7 @@ Route::get('/layout', function () {
 });
 
 Route::get('/fileupload', [FileUploadController::class, 'fileuploadView'])->name('fileupload');
-Route::post('/fileupload', [FileUploadController::class, 'uploadFile'])->name('fileupload');
+Route::post('/fileupload', [FileUploadController::class, 'uploadFile'])->name('uploadFiles');
 
 
 
