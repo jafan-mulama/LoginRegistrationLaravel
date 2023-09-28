@@ -27,11 +27,15 @@
             @csrf <!-- Include CSRF token -->
             <div class="form-group">
                 <label class="form-label">Email address</label>
-                <input type="text" class="form-control" placeholder="Enter email" name="email">
+                <label>
+                    <input type="text" class="form-control" placeholder="Enter email" name="email">
+                </label>
             </div> <br/>
             <div class="form-group">
                 <label class="form-label">Password</label>
-                <input type="password" class="form-control"  placeholder="Password" name="password">
+                <label>
+                    <input type="password" class="form-control"  placeholder="Password" name="password">
+                </label>
             </div><br/>
             <button type="submit" class="btn btn-primary">Log in</button>
         </form>
