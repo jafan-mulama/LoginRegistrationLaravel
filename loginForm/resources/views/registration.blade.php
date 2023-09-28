@@ -2,7 +2,28 @@
 @section('title', 'Registration')
 @section('body_Content')
     <br/><br/><br/>
+    <div>
+        @if(session('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
+
+        @if(session('error'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ session('error') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
+    </div>
+
     <div class="container">
+
         <form action="{{ route('registration.post') }}" method="post" class="ms-auto me-auto mt-auto" style="width: 400px">
             @csrf <!-- Include CSRF token -->
             <div class="form-group">
