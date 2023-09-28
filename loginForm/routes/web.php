@@ -16,20 +16,24 @@ use App\Http\Controllers\FileUploadController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::get('/layout', function () {
     return view('layout');
-})->name('home');
+})->name('layout');
 
 Route::get('/login', [AuthManager::class, 'login'])->name('login');
 Route::post('/login', [AuthManager::class, 'loginPost'])->name('login.post');
 
-Route::get('/registration', [AuthManager::class, 'registration'])->name('register');
+Route::get('/registration', [AuthManager::class, 'registration'])->name('registration'); // Use 'registration' as the route name
 Route::post('/registration', [AuthManager::class, 'registrationPost'])->name('registration.post');
+Route::get('/logout', [AuthManager::class, 'logout'])->name('logout');
+
 
 Route::get('/fileupload', [FileUploadController::class, 'fileuploadView'])->name('fileupload');
 Route::post('/fileupload', [FileUploadController::class, 'uploadFile'])->name('uploadFiles');
+
+
 
 
 
